@@ -1,25 +1,20 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render
 from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from zb_backend.catalog.models import Brand, Product, ProductTrack
-from zb_backend.catalog.serializers import (BrandSerializer, GroupSerializer,
-                                             ProductSerializer, UserSerializer)
+from zb_backend.catalog.serializers import (BrandSerializer,
+                                            ProductSerializer, UserSerializer)
+from zb_backend.catalog.controllers.aws_ses_controller import send_mail
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
@@ -51,7 +46,20 @@ class ProductViewSet(viewsets.ModelViewSet):
             product_track.save()
 
         serializer = self.get_serializer(instance)
-        return Response(serializer.data)
+
+        data = {
+            **serializer.data,
+            "brand": instance.brand.name
+        }
+
+        return Response(data)
 
     def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        users = User.objects.filter()
+
+        for user in users:
+            send_mail(recipient=user.email, user=request.user,
+                      product=instance)
+
         return super().update(request, *args, **kwargs)
