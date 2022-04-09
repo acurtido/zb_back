@@ -28,7 +28,7 @@ def send_mail(recipient, user, product):
 
     # The email body for recipients with non-HTML email clients.
     BODY_TEXT = (f"""Update Notification from Amazon SES (SDK for Python)\r\n"
-                "The user {user_name} has made changes to the product: {product_info}
+                "The user {user_name} has made changes to the product: {product_info}.
                 """
                  )
 
@@ -38,7 +38,7 @@ def send_mail(recipient, user, product):
     <body>
     <h1>Update Notification from Amazon SES (SDK for Python)</h1>
     <h3>
-    The user {user_name} has made changes to the product: {product_info}
+    The user {user_name} has made changes to the product: {product_info}.
     </h3>
     <p>This email was sent with
         <a href='https://aws.amazon.com/ses/'>Amazon SES</a> using the
