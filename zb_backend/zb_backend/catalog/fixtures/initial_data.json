@@ -1,0 +1,95 @@
+[
+    {
+        "model": "catalog.brand",
+        "pk": 1,
+        "fields": {
+            "name": "LG"
+        }
+    },
+    {
+        "model": "catalog.brand",
+        "pk": 2,
+        "fields": {
+            "name": "Samsung"
+        }
+    },
+    {
+        "model": "catalog.brand",
+        "pk": 3,
+        "fields": {
+            "name": "Toshiba"
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 1,
+        "fields": {
+            "sku": "LG-AC-WHIT",
+            "name": "Air Conditioner LG White",
+            "price": 180,
+            "brand": 1
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 2,
+        "fields": {
+            "sku": "LG-AC-BLAC",
+            "name": "Air Conditioner LG Black",
+            "price": 200,
+            "brand": 1
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 3,
+        "fields": {
+            "sku": "SAM-AC-SMART",
+            "name": "Air Conditioner Samsung Smart",
+            "price": 220,
+            "brand": 2
+        }
+    },
+    {
+        "model": "catalog.product",
+        "pk": 4,
+        "fields": {
+            "sku": "TOSH-AC-BL",
+            "name": "Air Conditioner Toshiba Black",
+            "price": 240,
+            "brand": 3
+        }
+    },
+    {
+        "model": "catalog.producttrack",
+        "pk": 1,
+        "fields": {
+            "product": 1,
+            "visits": 0
+        }
+    },
+    {
+        "model": "catalog.producttrack",
+        "pk": 2,
+        "fields": {
+            "product": 2,
+            "visits": 0
+        }
+    },
+    {
+        "model": "catalog.producttrack",
+        "pk": 3,
+        "fields": {
+            "product": 3,
+            "visits": 0
+        }
+    },
+    {
+        "model": "catalog.producttrack",
+        "pk": 4,
+        "fields": {
+            "product": 4,
+            "visits": 0
+        }
+    }
+]
