@@ -1,6 +1,8 @@
 # ZB_BACKEND
 This app is built with ``Django`` and ``Django Rest Framework``. A showcase can be found deployed at http://zb-backend-env.eba-sd4jik8s.us-west-2.elasticbeanstalk.com/.
 
+API documentation can be found at swagger: https://app.swaggerhub.com/apis/acurtido/zb-backend/1.0.0.
+
 # Requirements
 In order to run this application [Python >= 3.8](https://www.python.org/) should be installed. This apps uses Django 4, so older version of Python won't work.
 
