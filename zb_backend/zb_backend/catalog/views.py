@@ -10,6 +10,7 @@ from zb_backend.catalog.models import Brand, Product, ProductTrack
 from zb_backend.catalog.serializers import (BrandSerializer,
                                             ProductSerializer, UserSerializer)
 from zb_backend.catalog.controllers.aws_ses_controller import send_mail
+from zb_backend.catalog.serializers import ProductTrackSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -25,6 +26,15 @@ class BrandViewSet(viewsets.ModelViewSet):
 
 
 class ProductViewSet(viewsets.ModelViewSet):
+    """
+    Products management API. 
+    
+    * Each time a product is queried the number of visits for that product will increase.
+    * Every product update made by authenticated users will notify others
+    admins by email using [AWS SES][ref].
+
+    [ref]: https://aws.amazon.com/es/ses/
+    """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -46,13 +56,8 @@ class ProductViewSet(viewsets.ModelViewSet):
             product_track.save()
 
         serializer = self.get_serializer(instance)
-
-        data = {
-            **serializer.data,
-            "brand": instance.brand.name
-        }
-
-        return Response(data)
+        
+        return Response(serializer.data)
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -63,3 +68,14 @@ class ProductViewSet(viewsets.ModelViewSet):
                       product=instance)
 
         return super().update(request, *args, **kwargs)
+
+
+class ProductTrackViewSet(viewsets.ModelViewSet):
+    """
+    This API show the total visits for each [product][ref].
+
+    [ref]: /products
+    """
+    queryset = ProductTrack.objects.all()
+    serializer_class = ProductTrackSerializer
+    permission_classes = [permissions.IsAuthenticated]

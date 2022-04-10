@@ -1,0 +1,650 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /users/:
+    get:
+      operationId: listUsers
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    post:
+      operationId: createUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+  /users/{id}/:
+    get:
+      operationId: retrieveUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    put:
+      operationId: updateUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    patch:
+      operationId: partialUpdateUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - users
+    delete:
+      operationId: destroyUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+  /products/:
+    get:
+      operationId: listProducts
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - products
+    post:
+      operationId: createProduct
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - products
+  /products/{id}/:
+    get:
+      operationId: retrieveProduct
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - products
+    put:
+      operationId: updateProduct
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - products
+    patch:
+      operationId: partialUpdateProduct
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - products
+    delete:
+      operationId: destroyProduct
+      description: "Products management API. \n\n* Each time a product is queried\
+        \ the number of visits for that product will increase.\n* Every product update\
+        \ made by authenticated users will notify others\nadmins by email using [AWS\
+        \ SES][ref].\n\n[ref]: https://aws.amazon.com/es/ses/"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - products
+  /brands/:
+    get:
+      operationId: listBrands
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brands
+    post:
+      operationId: createBrand
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brands
+  /brands/{id}/:
+    get:
+      operationId: retrieveBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brands
+    put:
+      operationId: updateBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brands
+    patch:
+      operationId: partialUpdateBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Brand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Brand'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+          description: ''
+      tags:
+      - brands
+    delete:
+      operationId: destroyBrand
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - brands
+  /products-track/:
+    get:
+      operationId: listProductTracks
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductTrack'
+          description: ''
+      tags:
+      - products-track
+    post:
+      operationId: createProductTrack
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductTrack'
+          description: ''
+      tags:
+      - products-track
+  /products-track/{id}/:
+    get:
+      operationId: retrieveProductTrack
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product track.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductTrack'
+          description: ''
+      tags:
+      - products-track
+    put:
+      operationId: updateProductTrack
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product track.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductTrack'
+          description: ''
+      tags:
+      - products-track
+    patch:
+      operationId: partialUpdateProductTrack
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product track.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductTrack'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductTrack'
+          description: ''
+      tags:
+      - products-track
+    delete:
+      operationId: destroyProductTrack
+      description: 'This API show the total visits for each [product][ref].
+
+
+        [ref]: /products'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this product track.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - products-track
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        groups:
+          type: array
+          items:
+            type: string
+          description: The groups this user belongs to. A user will get all permissions
+            granted to each of their groups.
+      required:
+      - username
+    Product:
+      type: object
+      properties:
+        sku:
+          type: string
+          maxLength: 10
+        name:
+          type: string
+          maxLength: 50
+        price:
+          type: number
+        brand:
+          type: string
+        brand_name:
+          type: string
+          readOnly: true
+      required:
+      - sku
+      - name
+      - brand
+    Brand:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - name
+    ProductTrack:
+      type: object
+      properties:
+        product:
+          type: string
+        product_name:
+          type: string
+          readOnly: true
+        product_sku:
+          type: string
+          readOnly: true
+        visits:
+          type: integer
+      required:
+      - product
