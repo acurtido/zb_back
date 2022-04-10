@@ -1,5 +1,5 @@
 # ZB_BACKEND
-This app is built with ``Django`` and ``Django Rest Framework``. A showcase can be found deployed at http://zb-backend-env.eba-sd4jik8s.us-west-2.elasticbeanstalk.com/.
+This app is built with ``Django`` and ``Django Rest Framework``. A showcase can be found deployed at http://zb-backend-env.eba-sd4jik8s.us-west-2.elasticbeanstalk.com/. Password for admin and admin2 is *change123@*.
 
 API documentation can be found at swagger: https://app.swaggerhub.com/apis/acurtido/zb-backend/1.0.0.
 
