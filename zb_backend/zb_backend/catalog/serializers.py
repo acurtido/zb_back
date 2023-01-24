@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import transaction
 from rest_framework import serializers
+
 from zb_backend.catalog.models import Brand, Product, ProductTrack
 
 
@@ -21,7 +22,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['sku', 'name', 'price', 'brand', 'brand_name']
+        fields = ['url', 'sku', 'name', 'price', 'brand', 'brand_name']
 
     def create(self, validated_data):
         with transaction.atomic():

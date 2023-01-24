@@ -1,15 +1,13 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.contrib.auth.models import User
 from django.db import transaction
-from django.shortcuts import render
 from rest_framework import permissions, viewsets
 from rest_framework.response import Response
+
+from zb_backend.catalog.controllers.aws_ses_controller import send_mail
 from zb_backend.catalog.models import Brand, Product, ProductTrack
 from zb_backend.catalog.serializers import (BrandSerializer,
                                             ProductSerializer, UserSerializer)
-from zb_backend.catalog.controllers.aws_ses_controller import send_mail
 from zb_backend.catalog.serializers import ProductTrackSerializer
 
 
@@ -56,7 +54,7 @@ class ProductViewSet(viewsets.ModelViewSet):
             product_track.save()
 
         serializer = self.get_serializer(instance)
-        
+
         return Response(serializer.data)
 
     def update(self, request, *args, **kwargs):
